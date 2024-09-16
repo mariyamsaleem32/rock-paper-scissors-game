@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: capitalize;
+    font-size: 35px;
+}
+
+img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+h1{
+    background-color: rgb(24, 23, 23);
+    height: 3rem;
+    color: white;
+    text-align: center;
+    line-height: 3rem;
+    margin: 1rem;
+}
+.choices{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.choice{
+    width: 197px;
+    height: 197px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.choice:hover{
+    background-color: black;
+}
+
+.score-bord{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    margin: 1.5rem;
+}
+
