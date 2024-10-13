@@ -1,40 +1,39 @@
 const choices = document.querySelectorAll(".choice");
+const message = document.getElementById("message");
+const userScore = document.getElementById("userScore");
+const compScore = document.getElementById("compScore");
 
- const getCompChoice = ( () => {
-    let choiceOfComp = ["rock","paper","scissor"];
-    let indx = Math.floor(Math.random()*3);
-     return choiceOfComp[indx];
+let user = 0;
+let comp = 0;
+
+const getCompChoice = () => {
+    const choiceOfComp = ["rock", "paper", "scissor"];
+    const indx = Math.floor(Math.random() * 3);
+    return choiceOfComp[indx];
+};
+
+choices.forEach((choice) => {
+    choice.addEventListener("click", () => {
+        const userChoice = choice.id;
+        const compChoice = getCompChoice();
+
+        if (userChoice === compChoice) {
+            message.innerHTML = "Game was a draw!";
+            message.style.backgroundColor = "blue";
+        } else if (
+            (userChoice === "scissor" && compChoice === "paper") ||
+            (userChoice === "rock" && compChoice === "scissor") ||
+            (userChoice === "paper" && compChoice === "rock")
+        ) {
+            user++;
+            message.innerHTML = `you win! Your ${userChoice} beats computer's ${compChoice}`;
+            message.style.backgroundColor = "green";
+        } else {
+            comp++;
+            message.innerHTML = `you lose! Computer's ${compChoice} beats your ${userChoice}`;
+            message.style.backgroundColor = "red";
+        }
+        userScore.innerHTML = user;
+        compScore.innerHTML = comp;
     });
-
-    choices.forEach((choice) =>{
-        choice.addEventListener("click", () =>{
-        
-            let userChoice = choice.id;
-            console.log("your choice" ,userChoice);
-            let compChoice = getCompChoice();
-            console.log("comp choice",compChoice);
-
-if (userChoice === compChoice) {
-    console.log("game was draw!")
-
-}if (userChoice === "scissor" && compChoice === "paper") {
-    console.log(`your ${userChoice} beats comuter's ${compChoice} `);
-
- } if(userChoice === "paper" && compChoice === "scissor") {
-    console.log(`computer's ${compChoice} beats your ${userChoice} `);
-
-} if (userChoice === "paper" && compChoice === "rock") {
-    console.log(`your ${userChoice} beats comuter's ${compChoice} `);
-    
-} if (userChoice === "rock" && compChoice === "paper") {
-    console.log(`computer's ${compChoice} beats your ${userChoice} `);
-    
-} if(userChoice === "rock" && compChoice === "scissor") {
-    console.log(`your ${userChoice} beats comuter's ${compChoice} `);
-    
-}if (userChoice === "scissor" && compChoice === "rock") {
-    console.log(`computer's ${compChoice} beats your ${userChoice} `);
- }
-
-});
 });
