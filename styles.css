@@ -76,3 +76,40 @@ h1{
     background-color: rgba(0, 0, 0, 0.7); 
     color: white;          
 }
+
+@media (max-width: 768px) { /* Tablet */
+    h1 {
+        font-size: 36px;
+    }
+
+    .choices {
+        flex-direction: column; 
+    }
+
+    .choice {
+        width: 150px;
+        height: 150px;
+    }
+
+    .score-bord, 
+    #message {
+        width: 80%; 
+    }
+}
+
+@media (max-width: 480px) { /* Mobile */
+    h1 {
+        font-size: 28px;
+    }
+
+    .score-bord, 
+    #message {
+        font-size: 24px; 
+        height: 100px;  
+    }
+
+    img {
+        width: 120px;
+        height: 120px;
+    }
+}
